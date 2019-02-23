@@ -111,9 +111,11 @@ public class Crater extends LinearOpMode {
             sleep(200);
             encoderDrive(1,-7.8,7.8,100);
             sleep(200);
-            encoderDrive(1,13,13,100);
+            encoderDrive(1,15,15,100);
             sleep(200);
             encoderDrive(1,-4.1,4.1,100);
+            sleep(200);
+            strafeRightDrive(1,4,4,100);
             sleep(200);
             encoderDrive(1,18,18,100);
             //sleep(200);
@@ -137,7 +139,9 @@ public class Crater extends LinearOpMode {
             sleep(200);
             encoderDrive(1,-5.25,5.25,100);
             sleep(200);
-            encoderDrive(1,16,16,100);
+            strafeRightDrive(1,4,4,100);
+            sleep(200);
+            encoderDrive(1,18.5,18.5,100);
             //sleep(200);
             dropTheMarker();
             //sleep(200);

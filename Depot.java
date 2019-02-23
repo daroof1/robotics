@@ -87,7 +87,9 @@ public class Depot extends LinearOpMode {
             sleep(200);
             encoderDrive(1,20,20,100);
             sleep(200);
-            encoderDrive(1,12.2,-12.2,100);
+            encoderDrive(1,12.6,-12.6,100);
+            sleep(200);
+            strafeLeftDrive(1,4,4,100);
             sleep(200);
             encoderDrive(1,19,19,100);
             dropTheMarker();
@@ -96,9 +98,9 @@ public class Depot extends LinearOpMode {
             sleep(200);
             encoderDrive(1,-17.5,-17.5,100);
             sleep(200);
-            encoderDrive(1,20.25,-20.25,100);
+            encoderDrive(1,21.25,-21.25,100);
             sleep(200);
-            encoderDrive(1,11,11,100);
+            encoderDrive(1,13.5,13.5,100);
         }
         else if(x.equals("Left"))
         {
@@ -112,9 +114,9 @@ public class Depot extends LinearOpMode {
             //sleep(200);
             dropTheMarker();
             //sleep(200);
-            encoderDrive(1,18.95,-18.95,100);
+            encoderDrive(1,20.25,-20.25,100);
             sleep(200);
-            encoderDrive(1,33,33,100);
+            encoderDrive(1,35.5,35.5,100);
 
         }
         else if(x.equals("Center"))
@@ -127,7 +129,9 @@ public class Depot extends LinearOpMode {
             sleep(200);
             encoderDrive(1,16.5,16.5,100);
             sleep(200);
-            encoderDrive(1,12.4,-12.4,100);
+            encoderDrive(1,12.6,-12.6,100);
+            sleep(200);
+            strafeLeftDrive(1,4,4,100);
             sleep(200);
             encoderDrive(1,21,21,100);
             dropTheMarker();
@@ -138,7 +142,7 @@ public class Depot extends LinearOpMode {
             sleep(200);
             encoderDrive(1,20.65,-20.65,100);
             sleep(200);
-            encoderDrive(1,15,15,100);
+            encoderDrive(1,17.5,17.5,100);
         }
 
 
