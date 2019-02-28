@@ -18,6 +18,8 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import java.util.List;
 import java.util.Locale;
 
+
+
 @Autonomous(name = "Autonomous Crater",group = "LinearOpMode")
 public class Crater extends LinearOpMode {
 
@@ -81,29 +83,29 @@ public class Crater extends LinearOpMode {
             sleep(200);
             encoderDrive(1,14,14,100);
             sleep(200);
-            encoderDrive(1,-5.25,-5.25,100);
+            encoderDrive(1,-5.5,-5.5,100);
             sleep(200);
             encoderDrive(1,-13.1,13.1,100);
             sleep(200);
-            encoderDrive(1,24.5,24.5,100);
+            encoderDrive(1,23.25,23.25,100);
             sleep(200);
-            encoderDrive(1,-4.25,4.25,100);
+            encoderDrive(1,-4.5,4.5,100);
+            sleep(200);
+            strafeRightDrive(1,8,8,100);
             sleep(200);
             encoderDrive(1,15.5,15.5,100);
-            //sleep(200);
             dropTheMarker();
-            //sleep(200);
-            encoderDrive(1,-2.25,2.25,100);
+            //encoderDrive(1,-2.25,2.25,100);
             sleep(200);
-            encoderDrive(1,-18.5,-18.5,100);
+            encoderDrive(1,-15.5,-15.5,100);
             sleep(200);
-            encoderDrive(1,-21.5,21.5,100);
+            encoderDrive(1,-21.25,21.25,100);
             sleep(200);
-            encoderDrive(.75,9.8,9.8,100);
+            encoderDrive(.5,13.2,13.2,100);
         }
         else if(x.equals("Left"))
         {
-            encoderDrive(1,-3.6,3.6,100);
+            encoderDrive(1,-3.4,3.4,100);
             sleep(200);
             encoderDrive(1,14,14,100);
             sleep(200);
@@ -113,19 +115,19 @@ public class Crater extends LinearOpMode {
             sleep(200);
             encoderDrive(1,15,15,100);
             sleep(200);
-            encoderDrive(1,-4.1,4.1,100);
+            encoderDrive(1,-3.75,3.75,100);
             sleep(200);
-            strafeRightDrive(1,4,4,100);
+            strafeRightDrive(1,6,6,100);
             sleep(200);
             encoderDrive(1,18,18,100);
             //sleep(200);
             dropTheMarker();
             //sleep(200);
-            encoderDrive(1,-14.5,-14.5,100);
+            encoderDrive(1,-19.5,-19.5,100);
             sleep(200);
-            encoderDrive(1,-22.25,22.25,100);
+            encoderDrive(1,-20.75,20.75,100);
             sleep(200);
-            encoderDrive(.75,11,11,100);
+            encoderDrive(.5,14,14,100);
         }
         else if(x.equals("Center"))
         {
@@ -137,21 +139,21 @@ public class Crater extends LinearOpMode {
             sleep(200);
             encoderDrive(1,21.5,21.5,100);
             sleep(200);
-            encoderDrive(1,-5.25,5.25,100);
+            encoderDrive(1,-4.75,4.75,100);
             sleep(200);
-            strafeRightDrive(1,4,4,100);
+            strafeRightDrive(1,5.5,5.5,100);
             sleep(200);
-            encoderDrive(1,18.5,18.5,100);
+            encoderDrive(1,14.5,14.5,100);
             //sleep(200);
             dropTheMarker();
             //sleep(200);
-            encoderDrive(1,-2.25,2.25,100);
+            //encoderDrive(1,-2.25,2.25,100);
             sleep(200);
-            encoderDrive(1,-18.5,-18.5,100);
+            encoderDrive(1,-14.5,-14.5,100);
             sleep(200);
             encoderDrive(1,-21,21,100);
             sleep(200);
-            encoderDrive(.75,11,11,100);
+            encoderDrive(.5,14,14,100);
         }
 
         //This block of code deals with hanging
@@ -164,8 +166,8 @@ public class Crater extends LinearOpMode {
     }
     public void dropTheMarker()
     {
-        robot.Intake.setPower(-1);
-        sleep(4000);
+        robot.Intake.setPower(-.4);
+        sleep(2000);
         robot.Intake.setPower(0);
     }
     public String ImageSensing() {
@@ -812,8 +814,8 @@ public class Crater extends LinearOpMode {
         }
     }
     public void hangMoveWithExtension(double speed,
-                         double ticks,double ticks2,
-                         double timeoutS) {
+                                      double ticks,double ticks2,
+                                      double timeoutS) {
         int newTarget;
         int newTarget2;
         boolean isDone = false;
@@ -1001,7 +1003,7 @@ public class Crater extends LinearOpMode {
     }
     public void Delatch()
     {
-        hangMove(1,-22330,12);
+        hangMove(1,-22370,12);
         //hangMove(1,-2000,20);
     }
     public void SetBackToNormal()

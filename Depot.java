@@ -23,7 +23,6 @@ import java.util.Locale;
 
 @Autonomous(name = "Autonomous Depot",group = "LinearOpMode")
 public class Depot extends LinearOpMode {
-
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
@@ -87,20 +86,19 @@ public class Depot extends LinearOpMode {
             sleep(200);
             encoderDrive(1,20,20,100);
             sleep(200);
-            encoderDrive(1,12.6,-12.6,100);
+            encoderDrive(1,14,-14,100);
             sleep(200);
-            strafeLeftDrive(1,4,4,100);
+            strafeLeftDrive(1,8,8,100);
             sleep(200);
             encoderDrive(1,19,19,100);
             dropTheMarker();
-            //sleep(200);
-            encoderDrive(1,2.25,-2.25,100);
+            //encoderDrive(1,2.25,-2.25,100);
             sleep(200);
             encoderDrive(1,-17.5,-17.5,100);
             sleep(200);
-            encoderDrive(1,21.25,-21.25,100);
+            encoderDrive(1,21.5,-21.5,100);
             sleep(200);
-            encoderDrive(1,13.5,13.5,100);
+            encoderDrive(.5,13.5,13.5,100);
         }
         else if(x.equals("Left"))
         {
@@ -111,12 +109,12 @@ public class Depot extends LinearOpMode {
             encoderDrive(1,7.8,-7.8,100);
             sleep(200);
             encoderDrive(1,6,6,100);
-            //sleep(200);
             dropTheMarker();
-            //sleep(200);
+            encoderDrive(1,-15,-15,100);
+            sleep(200);
             encoderDrive(1,20.25,-20.25,100);
             sleep(200);
-            encoderDrive(1,35.5,35.5,100);
+            encoderDrive(.5,20.5,20.5,100);
 
         }
         else if(x.equals("Center"))
@@ -129,25 +127,24 @@ public class Depot extends LinearOpMode {
             sleep(200);
             encoderDrive(1,16.5,16.5,100);
             sleep(200);
-            encoderDrive(1,12.6,-12.6,100);
+            encoderDrive(1,14,-14,100);
             sleep(200);
-            strafeLeftDrive(1,4,4,100);
+            strafeLeftDrive(1,8,8,100);
             sleep(200);
             encoderDrive(1,21,21,100);
             dropTheMarker();
-            //sleep(200);
-            encoderDrive(1,2.25,-2.25,100);
+            //encoderDrive(1,2.25,-2.25,100);
             sleep(200);
             encoderDrive(1,-17.5,-17.5,100);
             sleep(200);
-            encoderDrive(1,20.65,-20.65,100);
+            encoderDrive(1,21.15,-21.15,100);
             sleep(200);
-            encoderDrive(1,17.5,17.5,100);
+            encoderDrive(.5,16.5,16.5,100);
         }
 
 
 
-                 //This block of code deals with hanging
+        //This block of code deals with hanging
         //sleep(10000);
         SetBackToNormal();
         //Latch();
@@ -157,8 +154,8 @@ public class Depot extends LinearOpMode {
     }
     public void dropTheMarker()
     {
-        robot.Intake.setPower(-1);
-        sleep(4000);
+        robot.Intake.setPower(-.4);
+        sleep(2000);
         robot.Intake.setPower(0);
     }
     public void hangMoveWithExtension(double speed,
@@ -235,12 +232,12 @@ public class Depot extends LinearOpMode {
     }
     public void armTime(double time)
     {
-            robot.Right.setPower(-.5);
-            robot.Left.setPower(-.5);
-            long time2 = (long)time * 1000;
-            sleep(time2);
-            robot.Right.setPower(0);
-            robot.Left.setPower(0);
+        robot.Right.setPower(-.5);
+        robot.Left.setPower(-.5);
+        long time2 = (long)time * 1000;
+        sleep(time2);
+        robot.Right.setPower(0);
+        robot.Left.setPower(0);
     }
     public String ImageSensing() {
 
@@ -392,9 +389,9 @@ public class Depot extends LinearOpMode {
                         }
                         telemetry.update();
                     }
-                        }
-                    }
                 }
+            }
+        }
         if (tfod != null) {
             tfod.shutdown();
         }
@@ -415,14 +412,14 @@ public class Depot extends LinearOpMode {
         telemetry.addData(">", "Press Play to start tracking");
         telemetry.update();
     }
-    private void initTfod() {
+    public void initTfod() {
         int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
                 "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_GOLD_MINERAL, LABEL_SILVER_MINERAL);
     }
-    private void initVuforia() {
+    public void initVuforia() {
         /*
          * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
          */
@@ -513,8 +510,8 @@ public class Depot extends LinearOpMode {
         }
     }
     public void strafeLeftDrive(double speed,
-                             double leftInches, double rightInches,
-                             double timeoutS) {
+                                double leftInches, double rightInches,
+                                double timeoutS) {
         int newLeftTarget;
         int newRightTarget;
 
@@ -591,8 +588,8 @@ public class Depot extends LinearOpMode {
         }
     }
     public void strafeRightDrive(double speed,
-                                double leftInches, double rightInches,
-                                double timeoutS) {
+                                 double leftInches, double rightInches,
+                                 double timeoutS) {
         int newLeftTarget;
         int newRightTarget;
 
@@ -944,8 +941,8 @@ public class Depot extends LinearOpMode {
         }
     }
     public void intakeMove(double speed,
-                         double ticks,
-                         double timeoutS) {
+                           double ticks,
+                           double timeoutS) {
         int newTarget;
 
 
@@ -1002,8 +999,8 @@ public class Depot extends LinearOpMode {
         }
     }
     public void intakeMoveWithStall(double speed,
-                           double ticks,
-                           double timeoutS,double z) {
+                                    double ticks,
+                                    double timeoutS,double z) {
         int newTarget;
 
 
@@ -1064,8 +1061,8 @@ public class Depot extends LinearOpMode {
         }
     }
     public void armMove(double speed,
-                             double leftInches, double rightInches,
-                             double timeoutS) {
+                        double leftInches, double rightInches,
+                        double timeoutS) {
         int newLeftTarget;
         int newRightTarget;
 
@@ -1120,18 +1117,15 @@ public class Depot extends LinearOpMode {
     }
     public void Delatch()
     {
-        hangMove(1,-22330,20);
-        //hangMove(1,-2000,20);
+        hangMove(1,-22370,20);
     }
     public void SetBackToNormal()
     {
-        //intakeMove(1,-925,100);
         hangMove(1,22445,20);
     }
     public void Latch()
     {
         hangMove(1,-20375,20);
-        //hangMove(.5,20375,20);
     }
     public void SetBackToNormal2()
     {
